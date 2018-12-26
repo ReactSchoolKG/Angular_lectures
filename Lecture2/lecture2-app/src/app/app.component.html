@@ -1,0 +1,23 @@
+<p [ngClass]="{underline:underline,
+red:red,big:big}">Lecture 2 in KindGeek Scholl</p>
+
+<div>
+  <button (click)="control=!control">Show control</button>
+</div>
+<span *ngIf="control;then controlTemplate;else noControl">
+
+</span>
+<ng-template #controlTemplate>
+  <button (click)="underline=!underline">Underline</button>
+  <button (click)="big=!big">Big</button>
+  <button (click)="red=!red">Red</button>
+</ng-template>
+<ng-template #noControl>
+  Nothing
+</ng-template>
+<!-- trackBy example begin-->
+<button (click)="addOtherEpisode()">
+  Add Episode
+</button>
+<app-item-list *ngFor="let item of episodes;trackBy:trackById" [data]="item"></app-item-list>
+<!-- END -->
