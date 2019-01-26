@@ -1,0 +1,19 @@
+<form [formGroup]="profileForm">
+  <fieldset>
+    <legend>Profile form</legend>
+    <fieldset>
+      <legend>Personal data</legend>
+      <label>First name</label>
+      <input type="text" formControlName="firstName" placeholder="First name">
+      <label>Last name</label>
+      <input type="text" formControlName="lastName" placeholder="Last name">
+    </fieldset>
+  </fieldset>
+</form>
+<div>{{profileForm.get('firstName').hasError('required')}}</div>
+<div>
+  Value:{{profileForm.value|json}}
+</div>
+<div>
+  valueChanges:{{profileForm.valueChanges|async|json}}
+</div>

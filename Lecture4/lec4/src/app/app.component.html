@@ -1,0 +1,23 @@
+<p>app component</p>
+<!-- pipe -->
+{{2|power:2}}
+{{2|power:25}}
+<!-- End pipe -->
+<!-- Forms -->
+<app-student-form></app-student-form>
+<!-- End Forms -->
+<!-- Services -->
+<div>
+  <div>
+    {{students$|async|json}}
+  </div>
+  <ul>
+    <li *ngFor="let item of students$|async">
+      <div>Name:{{item.name}}</div>
+      <div>Age:{{item.age}}</div>
+      <div>
+        <button (click)="delete(item)">Delete {{item.name}}</button>
+      </div>
+    </li>
+  </ul>
+</div>
